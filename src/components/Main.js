@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Slider from './slider.js';
 
 const Repair = styled.div`
-	color: #ffffff;
+	color: #fff;
 	font-weight: 700;
 	line-height: 50px;
 	font-size: 40px;
@@ -20,7 +20,7 @@ const Repair = styled.div`
 `
 const LightText = styled.div`
 	margin-top: 54px;
-	color: #ffffff;
+	color: #fff;
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 28px;
@@ -31,7 +31,7 @@ const CallBtn = styled.button`
 	height: 64px;
 	background-color: #ffa14b;
 	border-radius: 30px;
-	color: #ffffff;
+	color: #fff;
 	font-size: 18px;
 	font-weight: bold;
 `

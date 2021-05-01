@@ -71,10 +71,10 @@ class Menu extends React.Component {
 					<Col lg={3} lgOffset={1}>
 						<WorkTime>Пн-пт с 10 до 20, сб,вс с 11 до 18
 							<Adress addr="Ленинская, 301" />
-						</WorkTime> 
+						</WorkTime>
 					</Col>
 					<Col lg={3}>
-						<Calls>Звонки принимаются 24 часа 
+						<Calls>Звонки принимаются 24 часа
 							<TelNumber tel="8 (846) 922 55 44" />
 						</Calls>
 					</Col>

@@ -6,7 +6,7 @@ import Slide_3 from '../img/slide-3.png';
 import Slide_4 from '../img/slide-4.png';
 
 class Slider extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
 			slides: [
@@ -35,16 +35,16 @@ class Slider extends React.Component {
 		this.prevOne = this.prevOne.bind(this);
 	}
 	// выполнение когда, комп появит на странице
-	componentDidMount(){
-		this.interval = setInterval(()=> this.intervalBetweenSlides(), 3000)
+	componentDidMount() {
+		this.interval = setInterval( () => this.intervalBetweenSlides(), 3000)
 	}
 	// когда слайд исчезнет
-	componentWillUnmount(){
+	componentWillUnmount() {
 		clearInterval(this.interval)
 	}
-	intervalBetweenSlides(){
-		if(this.state.autoplay === true){
-			if(this.state.active === this.state.max - 1) {
+	intervalBetweenSlides() {
+		if (this.state.autoplay === true) {
+			if (this.state.active === this.state.max - 1) {
 				this.state.active = 0
 			} else {
 				this.state.active++
@@ -63,16 +63,16 @@ class Slider extends React.Component {
 	}
 
 	// обработчик событий при кликах на стрелки
-	nextOne(){
+	nextOne() {
 		(this.state.active < this.state.max - 1) ?
 		this.setState({
 			active: this.state.active + 1
 		}) :
 		this.setState({
 			active: 0
-		})		
+		})
 	}
-	prevOne(){
+	prevOne() {
 		(this.state.active > 0) ?
 		this.setState({
 			active:  this.state.active - 1
@@ -82,14 +82,14 @@ class Slider extends React.Component {
 		})
 	}
 	// точки навигации
-	dots(index,event){
+	dots(index,event) {
 		this.setState({
 			active: index
 		})
 	}
 	// смотрит на активную точку
 	isActive(value) {
-		if(this.state.active === value){
+		if (this.state.active === value) {
 			// это класс активной точки
 			return 'active'
 		}
@@ -98,15 +98,15 @@ class Slider extends React.Component {
 	// стили для слайдера
 	setSliderStyles() {
 		// для определения ширины одного слайда
-		const transition = this.state.active * - 100/this.state.slides.length
+		const transition = this.state.active * - 100 / this.state.slides.length
 
 		return {
-			width: (this.state.slides.length*100) + '%',
+			width: (this.state.slides.length * 100) + '%',
 			transform: `translateX(${transition}%)`
 		}
 	}
 	renderSlides() {
-		const transition = 100/this.state.slides.length + "%"
+		const transition = 100 / this.state.slides.length + '%'
 
 		return this.state.slides.map((item,index) => (
 				<div
@@ -116,7 +116,7 @@ class Slider extends React.Component {
 				</div>
 			))
 	}
-	renderDots(){
+	renderDots() {
 		return this.state.slides.map((item,index) => (
 				<li
 					className={this.isActive(index) + ' dots'}
@@ -127,24 +127,23 @@ class Slider extends React.Component {
 				</li>
 			))
 	}
-	// кнопка для вкл / паузы
+	// кнопка для вкл паузы
 	renderPlayStop() {
 		let playStop;
 
-		if(this.state.autoplay) {
+		if (this.state.autoplay) {
 			playStop =  <svg fill='#FFFFFF' height='24' viewBox='0 0 24 24' width='24'>
-								<path d='M0 0h24v24H0z' fill='none'/>
-								<path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z'/>
-							</svg>;
+							<path d='M0 0h24v24H0z' fill='none'/>
+							<path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z'/>
+						</svg>;
 		} else {
 			playStop =  <svg fill='#FFFFFF' height='24' viewBox='0 0 24 24' width='24'>
-							   <path d='M0 0h24v24H0z' fill='none'/>
-							   <path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z'/>
-							</svg>;
+						   <path d='M0 0h24v24H0z' fill='none'/>
+						   <path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z'/>
+						</svg>;
 		}
 		return playStop
 	}
-
 	renderArrows() {
 		return (
 				<div>
@@ -170,9 +169,8 @@ class Slider extends React.Component {
 				</div>
 			)
 	}
-
 	render() {
-		return(
+		return (
 				<div className="slider">
 					<div
 						className="wrapper"
