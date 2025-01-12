@@ -45,14 +45,10 @@ class Slider extends React.Component {
 	intervalBetweenSlides() {
 		if (this.state.autoplay === true) {
 			if (this.state.active === this.state.max - 1) {
-				this.state.active = 0
+				this.setState({ active: 0 })
 			} else {
-				this.state.active++
+				this.setState((prevState) => ({ active: prevState.active + 1 }))
 			}
-
-			this.setState({
-				active: this.state.active
-			})
 		}
 	}
 	// метод переключения
@@ -119,11 +115,10 @@ class Slider extends React.Component {
 	renderDots() {
 		return this.state.slides.map((item,index) => (
 				<li
-					className={this.isActive(index) + ' dots'}
+					className={`${this.isActive(index) ? 'active dots' : 'dots'}`}
 					key={index}
-					ref="dots"
-					onClick={this.dots.bind(this,index)}>
-					<a>&#9679;</a>
+					onClick={() => this.dots(index)}>
+					<button>&#9679;</button>
 				</li>
 			))
 	}
@@ -184,11 +179,11 @@ class Slider extends React.Component {
 						{this.renderDots()}
 					</ul>
 
-					<a
+					<button
 						className="toggle-play"
 						onClick={this.toggleAutoPlay}>
 							{this.renderPlayStop()}
-					</a>
+					</button>
 				</div>
 			)
 	}
